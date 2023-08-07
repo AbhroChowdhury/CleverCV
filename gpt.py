@@ -1,5 +1,4 @@
 import openai
-import readline
 import os
 
 # Load environment variables from .env file
@@ -10,12 +9,13 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def chat_with_gpt(messages):
-    response = openai.Completion.create(
-        engine="text-davinci-003",  # Use the appropriate engine
-        prompt=messages,
-        max_tokens=50  # Adjust as needed
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        max_tokens=50,  # Adjust as needed
+        temperature=0.7  # Adjust as needed
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message["content"]
 
 def main():
     print("Welcome to GPT-3 Chat!")
@@ -31,9 +31,8 @@ def main():
             break
         
         conversation.append({"role": "user", "content": user_input})
-        chat_messages = "\n".join([f"{message['role']}: {message['content']}" for message in conversation])
         
-        gpt_response = chat_with_gpt(chat_messages)
+        gpt_response = chat_with_gpt(conversation)
         print("GPT-3:", gpt_response)
         
         conversation.append({"role": "assistant", "content": gpt_response})
