@@ -94,9 +94,9 @@ def main():
         pdf_text = extract_text_from_pdf(uploaded_file)
         bullet_point_lines = identify_bullet_points(pdf_text)
         
-        st.write("-----Original Bullet Points:-----")
-        for line in bullet_point_lines:
-            st.write(line)
+        #st.write("-----Original Bullet Points:-----")
+        #for line in bullet_point_lines:
+        #    st.write(line)
 
         improved_bullet_points = improve_bullet_points(bullet_point_lines)
 
