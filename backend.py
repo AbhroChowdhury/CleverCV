@@ -3,6 +3,7 @@ import os
 import PyPDF2
 import streamlit as st
 
+st.set_theme('dark')
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
