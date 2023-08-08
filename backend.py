@@ -95,8 +95,8 @@ def main():
         pdf_text = extract_text_from_pdf(uploaded_file)
         bullet_point_lines = identify_bullet_points(pdf_text)
         
-        #st.write("## Original Bullet Points:")
-        #for line in bullet_point_lines:
+        # st.write("## Original Bullet Points:")
+        # for line in bullet_point_lines:
         #    st.write("**Original:**", line)
         #    st.write()
 
@@ -107,6 +107,8 @@ def main():
         for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
             st.write("----------------------------------------------------")
             st.write("**Original:**", original_point)
+            if improved_point.startswith("•") or improved_point.startswith("-"):
+                improved_point = improved_point[1:].strip()
             st.write("**Improved:**", improved_point)
             st.write("----------------------------------------------------")
             st.write()
