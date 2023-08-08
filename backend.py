@@ -95,18 +95,20 @@ def main():
         pdf_text = extract_text_from_pdf(uploaded_file)
         bullet_point_lines = identify_bullet_points(pdf_text)
         
-        st.write("## Original Bullet Points:")
-        for line in bullet_point_lines:
-            st.write("**Original:**", line)
-            st.write()
+        #st.write("## Original Bullet Points:")
+        #for line in bullet_point_lines:
+        #    st.write("**Original:**", line)
+        #    st.write()
 
         with st.spinner("Improving bullet points..."):
             improved_bullet_points = improve_bullet_points(bullet_point_lines)
 
         st.write("## Improved Bullet Points:")
         for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
+            st.write("----------------------------------------------------")
             st.write("**Original:**", original_point)
             st.write("**Improved:**", improved_point)
+            st.write("----------------------------------------------------")
             st.write()
 
 if __name__ == "__main__":
