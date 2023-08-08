@@ -81,23 +81,31 @@ def improve_bullet_points(bullet_points):
 
 
 def main():
-    print("Welcome to Resume Bullet Point Improvement with GPT-3 Chat!")
-    pdf_path = "resume.pdf"
-    pdf_text = extract_text_from_pdf(pdf_path)
-    bullet_point_lines = identify_bullet_points(pdf_text)
-    
-    print("-----Original Bullet Points:-----")
-    for line in bullet_point_lines:
-        print(line)
-    
-    improved_bullet_points = improve_bullet_points(bullet_point_lines)
-    
-    print("------Improved Bullet Points:------")
-    for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
-        print("Original:", original_point)
-        print("Improved:", improved_point)
-        print()
+    st.title("CleverCV")
 
+    st.sidebar.title("Instructions")
+    st.sidebar.write(
+        "1. Upload your resume PDF file.\n"
+        "2. Chat with CleverCV to get improved bullet points."
+    )
+
+    uploaded_file = st.file_uploader("Upload Resume PDF", type=["pdf"])
+
+    if uploaded_file is not None:
+        pdf_text = extract_text_from_pdf(uploaded_file)
+        bullet_point_lines = identify_bullet_points(pdf_text)
+        
+        st.write("-----Original Bullet Points:-----")
+        for line in bullet_point_lines:
+            st.write(line)
+
+        improved_bullet_points = improve_bullet_points(bullet_point_lines)
+
+        st.write("------Improved Bullet Points:------")
+        for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
+            st.write("Original:", original_point)
+            st.write("Improved:", improved_point)
+            st.write()
 
 if __name__ == "__main__":
     main()
