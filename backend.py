@@ -98,7 +98,8 @@ def main():
         #for line in bullet_point_lines:
         #    st.write(line)
 
-        improved_bullet_points = improve_bullet_points(bullet_point_lines)
+        with st.spinner("Improving bullet points..."):
+            improved_bullet_points = improve_bullet_points(bullet_point_lines)
 
         st.write("------Improved Bullet Points:------")
         for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
