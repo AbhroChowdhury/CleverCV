@@ -1,9 +1,10 @@
 import streamlit as st
 
 def main():
-    st.title("CleverCV - Resume Improvement App")
+    st.title("CleverCV")
+    st.caption("Leverage AI to help you get more interviews")
 
-    # Sidebar
+    # Sidebar (this is where I will put instructions)
     st.sidebar.title("Instructions")
     st.sidebar.write("Welcome to CleverCV! Follow these steps:")
     st.sidebar.write("1. Upload your resume in PDF format.")
