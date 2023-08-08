@@ -96,12 +96,12 @@ def main():
     st.sidebar.write(
         "**Why do the AI suggestions include words in curly brackets sometimes?**\n"
         "The curly brackets are meant to signify areas that the user will need to put manual fill in. Just off the resume alone, the AI cannot tell what tools you used or achievement metrics for tasks, and so the curly brackets are to prompt you to enter them in yourself.\n"
-        "**Does CleverCV store my data? Is it Secure?**"
-        "CleverCV does not store your data! As soon as you exit or refresh the page, your data will be erased from our history"
-        "**Is CleverCV free?**"
-        "Yes, CleverCV is free currently! However it is important to keep in mind that this is subject to change based on demand; We get charged with each API call, and so high demand could result in changes in the future."
-        "**Where can I send suggestions or report bugs?**"
-        "Please reach out to abhrajyo@ualberta.ca with any queries regarding CleverCV!"
+        "**Does CleverCV store my data? Is it Secure?**\n"
+        "CleverCV does not store your data! As soon as you exit or refresh the page, your data will be erased from our history\n"
+        "**Is CleverCV free?**\n"
+        "Yes, CleverCV is free currently! However it is important to keep in mind that this is subject to change based on demand; We get charged with each API call, and so high demand could result in changes in the future.\n"
+        "**Where can I send suggestions or report bugs?**\n"
+        "Please reach out to abhrajyo@ualberta.ca with any queries regarding CleverCV!\n"
     )
 
     uploaded_file = st.file_uploader("Upload Resume PDF", type=["pdf"])
