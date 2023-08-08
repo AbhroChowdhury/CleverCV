@@ -81,6 +81,7 @@ def improve_bullet_points(bullet_points):
 
 def main():
     st.title("CleverCV")
+    st.caption("Leverage AI to get more interviews!")
 
     st.sidebar.title("Instructions")
     st.sidebar.write(
@@ -94,17 +95,18 @@ def main():
         pdf_text = extract_text_from_pdf(uploaded_file)
         bullet_point_lines = identify_bullet_points(pdf_text)
         
-        #st.write("-----Original Bullet Points:-----")
-        #for line in bullet_point_lines:
-        #    st.write(line)
+        st.write("## Original Bullet Points:")
+        for line in bullet_point_lines:
+            st.write("**Original:**", line)
+            st.write()
 
         with st.spinner("Improving bullet points..."):
             improved_bullet_points = improve_bullet_points(bullet_point_lines)
 
-        st.write("------Improved Bullet Points:------")
+        st.write("## Improved Bullet Points:")
         for original_point, improved_point in zip(bullet_point_lines, improved_bullet_points):
-            st.write("Original:", original_point)
-            st.write("Improved:", improved_point)
+            st.write("**Original:**", original_point)
+            st.write("**Improved:**", improved_point)
             st.write()
 
 if __name__ == "__main__":
